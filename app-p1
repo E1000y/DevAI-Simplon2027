@@ -1,0 +1,12 @@
+import pandas as pd
+import plotly.express as px
+
+url = 'https://docs.google.com/spreadsheets/d/15PwHZ17q8B3JSv7LHC6Y1p_Rhy5fiBWKlSwAzmbF4NY/export?format=csv&gid=0'
+
+dataframe = pd.read_csv(url)
+
+#print(dataframe)
+
+fig = px.bar(dataframe, x='produit', y='unit_vendues', title='Unités vendues par produit')
+
+fig.write_html('ventes-par-produit.html',include_plotlyjs='cdn')

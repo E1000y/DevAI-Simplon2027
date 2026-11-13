@@ -1,0 +1,13 @@
+import pandas as pd
+import plotly.express as px
+
+url = 'https://docs.google.com/spreadsheets/d/15yE3mnBlxb7pGEIPFxQhwd6_UxNEqf0GQQqSPbM9T-E/export?format=csv&gid=0'
+
+
+dataframe = pd.read_csv(url)
+
+#print(dataframe)
+
+fig = px.bar(dataframe, x='produit', y='CA_par_produit', title="Chiffre d'affaires par produit")
+
+fig.write_html('CA-par-produit.html',include_plotlyjs='cdn')
